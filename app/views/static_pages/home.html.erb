@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<header>
+  <script type="text/javascript" language="javascript">
+      $(document).ready(function(){    $('.carousel').carousel({ interval: 4000    });  });
+  </script>
+</header>
+
+<body>
+<% if signed_in? %>
+
+    <div class="row">
+      <aside class="span4">
+        <section>
+          <%= render 'shared/user_info' %>
+        </section>
+        <section>
+          <%= render 'shared/stats' %>
+        </section>
+        <section>
+          <%= render 'shared/micropost_form' %>
+        </section>
+      </aside>
+      <div class="span8">
+        <h3>Micropost Feed</h3>
+        <%= render 'shared/feed' %>
+      </div>
+    </div>
+
+    </div>
+
+<% else %>
+    <div class="center hero-unit">
+
+      <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <div class="active item">
+            <%= image_tag "footy_img1.jpg" %>
+            <div class="carousel-caption">
+              <h2>Get the lastest premier league news updates</h2>
+            </div>
+          </div>
+
+
+          <div class="item">
+            <%= image_tag"footy_img2.jpg" %>
+            <div class="carousel-caption">
+              <h2>Post your opionion in microposts</h2>
+            </div>
+            </div>
+
+
+          <div class="item">
+            <a><%= image_tag "footy_img3.jpg" %></a>
+            <div class="carousel-caption">
+              <h2>Follow users posts</h2>
+          </div>
+          </div>
+          </div>
+
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
+
+    <h2>Welcome to the Football Network</h2>
+      <%= link_to "Sign up now!", signup_path,
+                  class: "btn btn-large btn-primary" %>
+
+    </div>
+    </div>
+      <% end %>
+      </body>
+</html>

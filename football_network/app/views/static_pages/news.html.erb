@@ -1,0 +1,28 @@
+<div class="center hero-unit" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<div class = "sky_logo"><%= image_tag("Sky-Sports-Logo.png", :alt => "sky_logo") %> </div>
+
+<% unless @latest_football_posts.nil? %>
+
+   <h2> The latest <%= pluralize(@latest_football_posts.count, "post") %> from sky sports </h2>
+    <ul>
+      <% @latest_football_posts.each do |post| %>
+          <% if nil != post && post.respond_to?(:pubDate) %>
+            <h4>  <li>
+
+
+                  <%= image_tag post.enclosure.url %></br>
+                <%= link_to post.title, post.link, :target => "_blank" %></br>
+                  <%= time_ago_in_words(post.pubDate) %> ago <br/>
+                  -----------------------------------------------------
+
+              </li>   </h4>
+          <% end %>
+      <% end %>
+    </ul>
+<% else %>
+    <p>
+      <em>No blog posts to show.</em>
+    </p>
+<% end %>
+</div>
+</div>

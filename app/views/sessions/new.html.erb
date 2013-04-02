@@ -1,0 +1,21 @@
+<div class="center hero-unit">
+<div class="row">
+  <div class="span5 offset3">
+    <% provide(:title, "Sign in") %>
+    <h3>Sign in</h3>
+
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+        <h3><%= f.label :email %></h3>
+        <%= f.text_field :email %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %></h3>
+
+        <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>
+</div>

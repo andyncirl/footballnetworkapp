@@ -1,0 +1,79 @@
+<div class="center hero-unit">
+<div class = "sky_logo"><%= image_tag("Sky-Sports-Logo.png", :alt => "sky_logo") %> </div>
+
+  <div class="accordion" id="accordion2">
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+         <h3>International News</h3>
+        </a>
+      </div>
+      <div id="collapseOne" class="accordion-body collapse in">
+        <div class="accordion-inner">
+          <% unless @international_football_posts.nil? %>
+
+              <ul>
+                <% @international_football_posts.each do |post| %>
+                    <% if nil != post && post.respond_to?(:pubDate) %>
+                        <h4>  <li>
+
+                          <div class = "news_images">
+
+                            <%= image_tag post.enclosure.url, :width => "150" %>
+
+                            <%= link_to post.title, post.link, :target => "_blank" %>
+                            <%= time_ago_in_words(post.pubDate) %> ago
+                          </div>
+
+                        </li>   </h4>
+                    <% end %>
+                <% end %>
+              </ul>
+          <% else %>
+              <p>
+                <em>No blog posts to show.</em>
+              </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        <h3>Premier League News</h3>
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <% unless @latest_football_posts.nil? %>
+
+
+            <ul>
+              <% @latest_football_posts.each do |post| %>
+                  <% if nil != post && post.respond_to?(:pubDate) %>
+                      <h4>  <li>
+
+                        <div class = "news_images">
+
+                          <%= image_tag post.enclosure.url, :width => "150" %>
+
+                          <%= link_to post.title, post.link, :target => "_blank" %>
+                          <%= time_ago_in_words(post.pubDate) %> ago
+                        </div>
+
+                      </li>   </h4>
+                  <% end %>
+              <% end %>
+            </ul>
+        <% else %>
+            <p>
+              <em>No blog posts to show.</em>
+            </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
